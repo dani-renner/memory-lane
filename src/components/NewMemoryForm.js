@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFirestore } from 'react-redux-firebase';
+import ReusableForm from "./ReusableForm";
 
 function NewMemoryForm(props) {
   const firestore = useFirestore();
@@ -10,15 +11,21 @@ function NewMemoryForm(props) {
     props.onNewMemoryCreation();
     return firestore.collection('memories').add(
       {
-
+        title: event.target.title.value,
+        date: event.target.date.value,
+        memory: event.target.memory.value,
+        timeOpen: firestore.FieldValue.serverTimestamp()
       }
     );
   }
 
-  return(
+  return (
     <>
+      <ReusableForm
+        formSubmissionHandler={addMemoryToFirestore}
+        buttonText="Submit" />
     </>
-  )
+  );
 }
 
 NewMemoryForm.propTypes = {
