@@ -14,7 +14,8 @@ class MemoryControl extends React.Component {
     super(props);
     this.state = {
       selectedMemory: null,
-      editing: false
+      editing: false,
+      imageList: null
     };
   }
 
@@ -59,6 +60,7 @@ class MemoryControl extends React.Component {
     const action = a.toggleForm();
     dispatch(action);
   }
+  
   handleEditClick = () => {
     this.setState({ editing: true });
   }
