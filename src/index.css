@@ -26,3 +26,11 @@ code {
     margin-top: 1rem;
     border-radius: 10px;
 }
+
+.addMemoryButton {
+  display: none;
+}
+
+img:hover + .addMemoryButton, .addMemoryButton:hover {
+  display: inline-block;
+}
