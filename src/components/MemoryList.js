@@ -19,10 +19,11 @@ function MemoryList(props){
       </React.Fragment>
     );
   } else {
+  return (
     <React.Fragment>
       <h3>Please wait...</h3>
     </React.Fragment>
-  }
+  )}
 }
 
 MemoryList.propTypes = {
