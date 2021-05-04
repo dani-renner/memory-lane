@@ -1,4 +1,6 @@
+import { connect } from "react-redux";
 import React from 'react';
+import EditMemoryForm from "./EditMemoryForm";
 import NewMemoryForm from './NewMemoryForm';
 import MemoryList from './MemoryList';
 import MemoryDetail from './MemoryDetail';
@@ -14,6 +16,12 @@ class MemoryControl extends React.Component {
       selectedMemory: null,
       editing: false
     };
+  }
+
+  handleAddingImageToMemory = () => {
+
+
+
   }
 
   handleClick = () => {
