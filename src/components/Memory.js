@@ -6,10 +6,12 @@ function Memory(props) {
   return (
     <>
       <div onClick={() => props.whenMemoryClicked(props.id)}>
+      <p>{props.title}</p>
+      <p>{props.date}</p>
 
       </div>
     </>
-  )
+  );
 }
 
 
