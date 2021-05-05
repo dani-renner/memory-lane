@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function MemoryDetail(props) {
-  const { memory, onClickingDelete } = props;
+  const { memory, onClickingDelete, onClickingAddImage } = props;
 
   return (
     <>
-      <div className="card-list">
+      {/* <div className="card-list"> */}
         <h3>{memory.title}</h3>
         <h4>{memory.date}</h4>
-          {/* {memory.map((memoryImage) => 
+        <p>{memory.memory}</p>
+          {/* {photos.map((memoryImage) => 
             <div className="card">
               <img
                 className="card--image"
@@ -20,16 +22,19 @@ function MemoryDetail(props) {
               ></img>
             </div>)
           } */}
-      </div>
-      <button onCLick={() => onClickingDelete(memory.id)}>Delete Memory</button>
-
+      {/* </div> */}
+      <button onClick={() => onClickingDelete(memory.id)}>Delete Memory</button>
+      <Link to={`/searchphotos/${memory.id}`}>
+        <button >Add Image</button>
+      </Link>
     </>
   );
 }
 
 MemoryDetail.propTypes = {
   memory: PropTypes.object,
-  onClickingDelete: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingAddImage: PropTypes.func
 };
 
 export default MemoryDetail;

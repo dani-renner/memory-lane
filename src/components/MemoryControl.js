@@ -4,6 +4,7 @@ import EditMemoryForm from "./EditMemoryForm";
 import NewMemoryForm from './NewMemoryForm';
 import MemoryList from './MemoryList';
 import MemoryDetail from './MemoryDetail';
+import SearchPhotos from './SearchPhotos';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
 import { withFirestore } from 'react-redux-firebase';
@@ -77,13 +78,16 @@ class MemoryControl extends React.Component {
     let buttonText = null;
 
     if (this.state.editing) {
-      currentlyVisibleState = <EditMemoryForm memory={this.state.selectedMemory} onEditMemory={this.handleEditingMemoryInList} />;
+      currentlyVisibleState =
+      <EditMemoryForm
+        memory={this.state.selectedMemory}
+        onEditMemory={this.handleEditingMemoryInList} />;
       buttonText = "Return to Memory List";
     } else if (this.state.selectedMemory !== null) {
       currentlyVisibleState =
         <MemoryDetail
           memory={this.state.selectedMemory}
-          onClickingDelete={this.handleDeleingMemory}
+          onClickingDelete={this.handleDeletingMemory}
           onClickingEdit={this.handleEditClick} />;
       buttonText = "Return to Memory List";
     } else if (this.props.formVisibleOnPage) {

@@ -1,28 +1,41 @@
 import Unsplash, { toJson } from 'unsplash-js';
 import { createApi } from 'unsplash-js';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import fetch from 'node-fetch';
 global.fetch = fetch;
 
-
-
 const unsplash = new Unsplash({
-  accessKey: `${process.env.REACT_APP_UNSPLASH_API_KEY}`,
-  fetch,
+  accessKey: process.env.REACT_APP_UNSPLASH_API_KEY
+  // fetch: nodeFetch,
 });
 
 function SearchPhotos() {
   const [query, setQuery] = useState("");
   const [pics, setPics] = useState([]);
 
+
+  // useEffect(() => {
+  //   unsplash.search
+  //     .getPhotos({ query: `${query}`})
+  //     .then(result => {
+  //       setPics(result);
+  //     })
+  //     .catch(() => {
+  //       console.log("something went wrong!");
+  //     });
+  // }, []);
+
   const searchPhotos = async (e) => {
     e.preventDefault();
     unsplash.search
-      .photos(query, 1, 20)
-      .then(toJson)
-      .then((json) => {
-        setPics(json.results);
-      });
+      .getPhotos({
+        query: query,
+        page: 1,
+        perPage: 20
+      })
+      .then(result => {
+        setPics(result);
+      })
   };
   return (
     <>
@@ -43,6 +56,22 @@ function SearchPhotos() {
         </button>
       </form>
       <form className="form" onSubmit={searchPhotos}></form>
+    
+    {pics &&
+      <div className="card-list">
+        {pics.map((memoryImage) => 
+          <div className="card">
+            <img
+              className="card--image"
+              alt={memoryImage.alt_description}
+              src={memoryImage.urls.full}
+              width="50%"
+              height="50%"
+            />
+          </div>)
+        }
+      </div>
+    } 
     </>
   );
 }

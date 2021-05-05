@@ -1,8 +1,7 @@
 import React from "react";
+import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
 import { useFirestore } from 'react-redux-firebase';
-import ReusableForm from "./ReusableForm";
-import SearchPhotos from './SearchPhotos';
 
 function NewMemoryForm(props) {
   const firestore = useFirestore();
@@ -25,7 +24,7 @@ function NewMemoryForm(props) {
       <ReusableForm
         formSubmissionHandler={addMemoryToFirestore}
         buttonText="Submit" />
-      <SearchPhotos/>
+        <hr/>
     </>
   );
 }

@@ -4,7 +4,8 @@ import { firestoreReducer } from 'redux-firestore';
 
 const rootReducer = combineReducers({
   formVisibleOnPage: formVisibleReducer,
-  firestore: firestoreReducer
+  firestore: firestoreReducer,
+
 });
 
 export default rootReducer;
