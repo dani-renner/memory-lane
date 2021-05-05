@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 
-function MemoryList(props) {
 
+function MemoryList(props) {
   useFirestoreConnect([
     { collection: 'memories' }
   ]);
-
   const memories = useSelector(state => state.firestore.ordered.memories);
 
   if (isLoaded(memories)) {

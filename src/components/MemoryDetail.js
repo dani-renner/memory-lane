@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 function MemoryDetail(props) {
   const { memory, onClickingDelete } = props;
+
   return (
     <>
       <div className="card-list">
@@ -21,6 +22,7 @@ function MemoryDetail(props) {
           }
       </div>
       <button onCLick={() => onClickingDelete(memory.id)}>Delete Memory</button>
+
     </>
   );
 }

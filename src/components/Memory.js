@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
+
 function Memory(props) {
   return (
     <>
@@ -12,12 +13,14 @@ function Memory(props) {
       </div>
     </>
   );
+
 }
 
 
 
 
 Memory.propTypes = {
+
   title: PropTypes.string,
   date: PropTypes.string,
   memory: PropTypes.string,
