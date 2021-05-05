@@ -1,11 +1,14 @@
+import Unsplash, { toJson } from 'unsplash-js';
+import { createApi } from 'unsplash-js';
 import React, { useState } from "react";
 import fetch from 'node-fetch';
-import Unsplash, { toJson } from 'unsplash-js';
+global.fetch = fetch;
+
 
 
 const unsplash = new Unsplash({
   accessKey: `${process.env.REACT_APP_UNSPLASH_API_KEY}`,
-  fetch: nodeFetch,
+  fetch,
 });
 
 function SearchPhotos() {
