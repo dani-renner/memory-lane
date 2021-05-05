@@ -41,9 +41,9 @@ class MemoryControl extends React.Component {
   handleChangingSelectedMemory = (id) => {
     this.props.firestore.get({ collection: 'memories', doc: id }).then((memory) => {
       const firestoreMemory = {
-        memoryDate: memory.get("memoryDate"),
-        creator: memory.get("creator"),
-        whenCreated: memory.get("whenCreated"),
+        title: memory.get("title"),
+        date: memory.get("date"),
+        memory: memory.get("memory"),
         id: memory.id
       }
       this.setState({ selectedMemory: firestoreMemory });

@@ -9,7 +9,7 @@ function MemoryDetail(props) {
       <div className="card-list">
         <h3>{memory.title}</h3>
         <h4>{memory.date}</h4>
-          {memory.map((memoryImage) => 
+          {/* {memory.map((memoryImage) => 
             <div className="card">
               <img
                 className="card--image"
@@ -19,7 +19,7 @@ function MemoryDetail(props) {
                 height="50%"
               ></img>
             </div>)
-          }
+          } */}
       </div>
       <button onCLick={() => onClickingDelete(memory.id)}>Delete Memory</button>
 
