@@ -2,26 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function Memory(props){
+
+function Memory(props) {
   return (
     <>
-    <div onClick = {() => props.whenMemoryClicked(props.id)}>
+      <div onClick={() => props.whenMemoryClicked(props.id)}>
+      <p>{props.title}</p>
+      <p>{props.date}</p>
 
-    </div>
+      </div>
     </>
-  )
+  );
+
 }
 
 
 
 
 Memory.propTypes = {
-  memoryDate: PropTypes.string,
 
-
-
+  title: PropTypes.string,
+  date: PropTypes.string,
+  memory: PropTypes.string,
+  id: PropTypes.string,
   creator: PropTypes.string,
-  whenCreated: firestore.FieldValue.serverTimestamp(),
+  whenCreated: PropTypes.func,
   whenMemoryClicked: PropTypes.func
 }
 
