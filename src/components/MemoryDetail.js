@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function MemoryDetail(props) {
-  const { memory, onClickingDelete, onClickingAddImage } = props;
+  const { memory, onClickingDelete } = props;
 
   return (
     <>
@@ -34,7 +34,6 @@ function MemoryDetail(props) {
 MemoryDetail.propTypes = {
   memory: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingAddImage: PropTypes.func
 };
 
 export default MemoryDetail;
